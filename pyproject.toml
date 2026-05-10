@@ -9,6 +9,7 @@ dependencies = [
     "scikit-learn>=1.8.0",
     "mlflow>=3.10.1",
     "fastapi[standard]>=0.135.3",
+    "pandas-stubs==3.0.0.260204",
 ]
 
 [dependency-groups]

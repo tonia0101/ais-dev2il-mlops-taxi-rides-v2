@@ -31,6 +31,18 @@ def train_model(model_type: str):
     model, metadata = train_logistic_regression_classifier(DATA_FILE)
   logger.info("Model training completed")
 
+  os.makedirs("models", exist_ok=True)
+
+  model_output_file = f"models/{model_type}.pkl"
+  logger.info(f"Storing model to: {model_output_file}")
+  with open(model_output_file, "wb") as f:
+      pickle.dump(model, f)
+
+  metadata_output_file = f"models/{model_type}.metadata.json"
+  logger.info(f"Writing metadata to: {metadata_output_file}")
+  with open(metadata_output_file, "w") as metadata_file:
+      json.dump(metadata, metadata_file, indent=4)
+
   logger.info(metadata)
 
 if __name__ == "__main__":
